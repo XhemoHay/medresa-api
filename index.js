@@ -41,17 +41,7 @@ async function main() {
  
 }
 
-app.use("/", async(req, res) => {
-  try{
-    const users = await User.find()
 
-    res.send(users)
-
-  }catch(err){
-
-  }
-  const users = await User.find()
-});
 
 app.use("/api/auth", authRoter);
 // app.use("/api/users", userRoter);
