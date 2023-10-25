@@ -42,7 +42,12 @@ async function main() {
  
 }
 
+app.use(express.static(path.join(__dirname, 'client', 'public')));
 
+// Define the catch-all route to serve the index.html
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'public', 'index.html'));
+});
 
 app.use("/api/auth", authRoter);
 // app.use("/api/users", userRoter);
