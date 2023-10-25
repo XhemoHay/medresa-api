@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 const helmet = require('helmet')
+const path = require('path')
 
 
 const authRoter = require("./routers/auth");
@@ -42,9 +43,8 @@ async function main() {
 }
 
 app.get('/*', (req, res) => {
-  res.sendFile('client/build/index.html', { root: __dirname });
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
-
 
 app.use("/api/auth", authRoter);
 // app.use("/api/users", userRoter);
