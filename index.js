@@ -41,14 +41,16 @@ async function main() {
 }
 
 
-app.use("/" , (req, res)=>{
-    res.send("Hello from api")
-})
-app.use("/auth", authRoter);
+
+app.use("/api/auth", authRoter);
 // app.use("/api/users", userRoter);
-app.use("/students", studentRoter);
-app.use("/salah", salahRoter);
-app.use("/klasat", classRoter);
+app.use("/api/students", studentRoter);
+app.use("/api/salah", salahRoter);
+app.use("/api/klasat", classRoter);
+
+app.use("*", (req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
 
 
 app.listen(port, ()=>{
