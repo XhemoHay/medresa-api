@@ -41,7 +41,9 @@ async function main() {
 }
 
 
-
+app.use("/" , (req, res)=>{
+    res.send("Hello from api")
+})
 app.use("/auth", authRoter);
 // app.use("/api/users", userRoter);
 app.use("/students", studentRoter);
