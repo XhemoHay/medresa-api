@@ -30,7 +30,7 @@ const corsOptions = {
   optionsSuccessStatus: 200, 
 };
 
-app.use(cors(allowedOrigin));
+app.use(cors(corsOptions));
 
 const dbUrl = process.env.MONGO
 main().catch(err => console.log(err));
