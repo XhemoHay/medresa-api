@@ -42,11 +42,11 @@ async function main() {
  
 }
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Define the catch-all route to serve the index.html
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.use("/api/auth", authRoter);
